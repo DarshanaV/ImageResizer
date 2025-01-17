@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compress Images</title>
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        nav {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+	<nav>
+        <ul>
+			<li><a href="index.html">Home</a></li>
+            <li><a href="crop.html">Crop Image</a></li>
+            <li><a href="resize.html">Resize Image</a></li>
+			<li><a href="convertToJPG.html">Convert to JPG</a></li>
+			<li><a href="compress.html">Compress IMAGE</a></li>
+        </ul>
+    </nav>
+    <div class="compress-tool-container">
+        <h1>Compress Images</h1>
+		<h3>Compress JPG, PNG, SVG or GIF with the best quality and compression. Reduce the filesize of your images at once.</h3>
+        <div class="compress-options">
+            <!-- Upload Button -->
+            <button id="upload-compress-btn">Upload Image</button>
+            <input type="file" id="compress-file-input" style="display: none" accept="image/*" />
+            
+            <!-- Compression Options -->
+            <div class="compression-radio">
+                <label>
+                    <input type="radio" name="compress-option" id="compress-by-quality" checked> Compress by Quality
+                </label>
+                <label>
+                    <input type="radio" name="compress-option" id="compress-by-dimensions"> Compress by Dimensions
+                </label>
+            </div>
+
+            <!-- Quality Slider -->
+            <div id="quality-option" class="compress-option">
+                <label for="compress-quality-slider">Quality:</label>
+                <input type="range" id="compress-quality-slider" min="0" max="100" value="80">
+                <span id="compress-quality-value">80%</span>
+            </div>
+
+            <!-- Dimensions Inputs -->
+            <div id="dimensions-option" class="compress-option">
+                <label for="compress-max-width">Max Width:</label>
+                <input type="number" id="compress-max-width" min="1">
+                <label for="compress-max-height">Max Height:</label>
+                <input type="number" id="compress-max-height" min="1">
+            </div>
+
+            <!-- Error Message for Invalid Input -->
+            <div id="error-message" style="color: red; display: none;">
+                Please enter valid positive numbers for max width and max height.
+            </div>
+        </div>
+
+        <!-- Image Preview Area -->
+        <div id="compress-preview-area" style="display: none;">
+            <div id="compress-preview-container"></div>
+            <div id="original-dimensions"></div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="compress-progress" style="width: 0%; background-color: green; height: 20px; display: none;"></div>
+
+        <!-- Buttons -->
+        <button id="compress-all-btn" style="display: none;">Compress All</button>
+        <button id="compress-download-btn" style="display: none;">Download Compressed Image</button>
+        <button id="reset-btn">Reset</button>
+		</div>
+
+    <script src="compress.js"></script>
+</body>
+</html>
